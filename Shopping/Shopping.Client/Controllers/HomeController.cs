@@ -1,22 +1,32 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Shopping.Client.Data;
+using Shopping.Client.Interface;
 using Shopping.Client.Models;
 
 namespace Shopping.Client.Controllers;
 
 public class HomeController : Controller
 {
+
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
+    private readonly IProductService _productService;
+
+    public HomeController(ILogger<HomeController> logger, IProductService productService)
+    {      
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
+        _productService = productService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View(ProductContext.Products);
+
+        _logger.LogDebug("Product api is being called");
+
+        var products = await _productService.GetProducts();
+
+        return View(products);
     }
 
     public IActionResult Privacy()

@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>{7E824152-E1A7-4289-A188-9A1684AAA8B2}</ProjectGuid>
+    <ProjectGuid>{B9E2B51A-514C-48EE-9092-F7C12BA4977A}</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>shopping.client</DockerServiceName>

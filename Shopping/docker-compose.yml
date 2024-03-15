@@ -6,3 +6,12 @@ services:
     build:
       context: .
       dockerfile: Shopping.Client/Dockerfile
+
+  shopping.api:
+    image: ${DOCKER_REGISTRY-}shoppingapi
+    build:
+      context: .
+      dockerfile: Shopping.API/Dockerfile
+
+  shopping.db:
+    image: mongo
